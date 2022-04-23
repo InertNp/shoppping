@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useState } from "react";
+import { Header } from "./Components/Header";
+import ListContainer from "./Components/ListContainer";
+import SelectedItems from "./Components/SelectedItems";
+import { List } from "./Data/Info";
 function App() {
+  console.log()
+  const [selectedItems, SetSelectedItems] = useState([List[1], List[2]]);
+  const handleData = (e) => {
+   SetSelectedItems(e)
+  };
+  // console.log(selectedItems)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <ListContainer
+        defaultselectedItems={selectedItems}
+        receiveData={(n) => handleData(n)}
+      />
+      <SelectedItems data={selectedItems}  />
+    </>
   );
 }
 
