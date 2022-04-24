@@ -11,8 +11,12 @@ html {
   font-size: 1.2rem;
   justify-content: center;
 }
-.container {
+.container{
   display: flex;
+}
+.sub-container {
+  display: flex;
+  flex-basis: 1;
   flex-flow: column;
   width: 100%;
 }
